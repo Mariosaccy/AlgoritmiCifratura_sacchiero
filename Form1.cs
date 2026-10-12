@@ -11,23 +11,6 @@ using System.Windows.Forms;
 
 namespace AlgoritmiCifratura_Sacchiero
 {
-
-    /*
-     	
-Algoritmi di cifratura: Cesare, Rot13 e Vigenère
-Realizzare una o più applicazioni per implementare i cifrari richiesti. Utilizzare classi e metodi per riutilizzarli ove opportuno.
-Specifiche del programma:
-consentire all'utente di inserire una frase da cifrare o decifrare
-una chiave K
-mostrare il testo cifrato o decifrato
-
-
-    per il cifrario di Cesare, la chiave K è un numero intero che indica di quante posizioni spostare le lettere dell'alfabeto (ad esempio, con K=3, A diventa D, B diventa E, ecc.)
-
-    per il cifrario di Rot13, la chiave K è fissa e corrisponde a uno spostamento di 13 posizioni (ad esempio, A diventa N, B diventa O, ecc.)
-
-    per il cifrario di Vigenère, la chiave K è una parola o una frase che viene ripetuta per tutta la lunghezza del testo da cifrare o decifrare. Ogni lettera della chiave indica di quante posizioni spostare la lettera corrispondente del testo (ad esempio, se la chiave è "KEY", la prima lettera del testo viene spostata di K posizioni, la seconda di E posizioni, e così via).
-     */
     public partial class Form1 : Form
     {
 
@@ -82,6 +65,12 @@ mostrare il testo cifrato o decifrato
 
         private void btn_cripta_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txt_input.Text))
+            {
+                MessageBox.Show("Inserisci un testo da cifrare o decifrare.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (scelta == 0)
             {
                 txt_output.Text = CifCesare.Cifra(txt_input.Text.ToUpper().Trim(), (int)nmr_numero.Value);
@@ -92,12 +81,22 @@ mostrare il testo cifrato o decifrato
             }
             else if (scelta == 2)
             {
+                if (string.IsNullOrWhiteSpace(txt_chiave.Text))
+                {
+                    MessageBox.Show("Inserisci una chiave per il cifrario di Vigenère.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 txt_output.Text = CifVigenere.Cifra(txt_input.Text.ToUpper().Trim(), txt_chiave.Text.ToUpper().Trim());
             }
         }
 
         private void btn_decripta_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txt_input.Text))
+            {
+                MessageBox.Show("Inserisci un testo da cifrare o decifrare.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (scelta == 0)
             {
                 txt_output.Text = CifCesare.Decifra(txt_input.Text.ToUpper().Trim(), (int)nmr_numero.Value);
@@ -108,6 +107,11 @@ mostrare il testo cifrato o decifrato
             }
             else if (scelta == 2)
             {
+                if (string.IsNullOrWhiteSpace(txt_chiave.Text))
+                {
+                    MessageBox.Show("Inserisci una chiave per il cifrario di Vigenère.", "Errore", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 txt_output.Text = CifVigenere.Decifra(txt_input.Text.ToUpper().Trim(), txt_chiave.Text.ToUpper().Trim());
             }
         }
