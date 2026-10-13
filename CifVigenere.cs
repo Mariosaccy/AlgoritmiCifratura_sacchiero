@@ -12,7 +12,7 @@ namespace AlgoritmoDiCesare_sacchiero
         // Cifra il testo utilizzando il cifrario di Vigenère con la chiave specificata
         public static string Cifra(string testo, string chiave)
         {
-            StringBuilder testoCifrato = new StringBuilder();
+            string testoCifrato = "";
             int chiaveIndex = 0;
             foreach (char c in testo)
             {
@@ -28,7 +28,7 @@ namespace AlgoritmoDiCesare_sacchiero
                     testoCifrato.Append(c);
                 }
             }
-            return testoCifrato.ToString();
+            return testoCifrato;
         }
 
         // Decifra il testo cifrato utilizzando il cifrario di Vigenère con la chiave specificata

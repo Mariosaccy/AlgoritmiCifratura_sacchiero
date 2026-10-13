@@ -12,7 +12,7 @@ namespace AlgoritmoDiCesare_sacchiero
         // Cifra il testo utilizzando il cifrario di Cesare con la chiave specificata
         public static string Cifra(string testo, int chiave)
         {
-            StringBuilder testoCifrato = new StringBuilder();
+            string testoCifrato = "";
             foreach (char c in testo)
             {
                 if (char.IsLetter(c))
@@ -26,7 +26,7 @@ namespace AlgoritmoDiCesare_sacchiero
                     testoCifrato.Append(c);
                 }
             }
-            return testoCifrato.ToString();
+            return testoCifrato;
         }
 
         // Decifra il testo cifrato utilizzando il cifrario di Cesare con la chiave specificata
