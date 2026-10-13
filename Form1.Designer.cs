@@ -60,10 +60,15 @@
             // 
             this.nmr_numero.Location = new System.Drawing.Point(3, 16);
             this.nmr_numero.Maximum = new decimal(new int[] {
-            25,
+            25000,
             0,
             0,
             0});
+            this.nmr_numero.Minimum = new decimal(new int[] {
+            25000,
+            0,
+            0,
+            -2147483648});
             this.nmr_numero.Name = "nmr_numero";
             this.nmr_numero.Size = new System.Drawing.Size(120, 20);
             this.nmr_numero.TabIndex = 2;

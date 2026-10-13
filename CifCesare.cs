@@ -19,11 +19,11 @@ namespace AlgoritmoDiCesare_sacchiero
                 {
                     char baseChar = char.IsUpper(c) ? 'A' : 'a';
                     char cCifrato = (char)((((c - baseChar) + chiave) % 26) + baseChar);
-                    testoCifrato.Append(cCifrato);
+                    testoCifrato+=cCifrato;
                 }
                 else
                 {
-                    testoCifrato.Append(c);
+                    testoCifrato += c;
                 }
             }
             return testoCifrato;

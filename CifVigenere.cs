@@ -19,13 +19,13 @@ namespace AlgoritmoDiCesare_sacchiero
                 if (char.IsLetter(c))
                 {
                     char baseChar = char.IsUpper(c) ? 'A' : 'a';
-                    char cCifrato = (char)((((c - baseChar) + (char.ToUpper(chiave[chiaveIndex]) - 'A')) % 26) + baseChar);
-                    testoCifrato.Append(cCifrato);
-                    chiaveIndex = (chiaveIndex + 1) % chiave.Length;
+                    char cCifrato = (char)((((c - baseChar) + (char.ToUpper(chiave[chiaveIndex]) - 'A')) % 26) + baseChar); // Calcola il carattere cifrato
+                    testoCifrato += cCifrato;
+                    chiaveIndex = (chiaveIndex + 1) % chiave.Length; // Avanza l'indice della chiave e torna all'inizio se necessario
                 }
                 else
                 {
-                    testoCifrato.Append(c);
+                    testoCifrato += c;
                 }
             }
             return testoCifrato;
